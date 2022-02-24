@@ -35,9 +35,9 @@ public class Client extends AbstractPO {
     @Column(name = "birth_date")
     private Date birthDate;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "client")
     private Set<Address> addresses;
-    @OneToMany()
+    @OneToMany(mappedBy = "client")
     private Set<Order> orders;
 
     @Override
