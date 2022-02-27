@@ -17,7 +17,4 @@ public class AbstractPO {
 
     @Column(name = "created_at")
     protected ZonedDateTime createdAt;
-
-    @Column(name = "version")
-    protected Integer version;
 }

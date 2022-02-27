@@ -18,9 +18,6 @@ public class DeletableAbstractPO {
     @Column(name = "created_at")
     protected ZonedDateTime createdAt;
 
-    @Column(name = "version")
-    protected Integer version;
-
     @Column(name = "is_deleted")
     protected Boolean isDeleted;
 }

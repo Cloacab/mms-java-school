@@ -11,9 +11,7 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @Table(name = "categories")
-public class Category extends AbstractPO{
-    @Column(name = "name")
+public class Category extends DeletableAbstractPO{
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "is_deleted")
-    private Boolean isDeleted;
 }

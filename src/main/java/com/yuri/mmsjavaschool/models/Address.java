@@ -8,19 +8,19 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "adresses")
+@Table(name = "addresses")
 public class Address extends AbstractPO {
-    @Column(name = "country")
+    @Column(name = "country", nullable = false)
     private String country;
-    @Column(name = "town")
+    @Column(name = "town", nullable = false)
     private String town;
-    @Column(name = "zip_code")
+    @Column(name = "zip_code", nullable = false)
     private String zipCode;
-    @Column(name = "street")
+    @Column(name = "street", nullable = false)
     private String street;
-    @Column(name = "house_number")
+    @Column(name = "house_number", nullable = false)
     private String houseNumber;
-    @Column(name = "apartment_number")
+    @Column(name = "apartment_number", nullable = false)
     private String apartmentNumber;
 
     @ManyToOne

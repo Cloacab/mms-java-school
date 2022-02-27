@@ -4,31 +4,42 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "orders")
 public class Order extends AbstractPO {
+
     @ManyToOne()
     @JoinColumn(name = "client_id")
     private Client client;
+
     @OneToOne()
     @JoinColumn(name = "address_id")
     private Address address;
-    @ManyToOne
-    @JoinColumn(name = "payment_type_id")
-    private PaymentType paymentType;
-    @ManyToOne
-    @JoinColumn(name = "delivery_type_id")
-    private DeliveryType deliveryType;
-    @ManyToOne()
-    @JoinColumn(name = "product_id")
-    private Product product;
-    @ManyToOne
-    @JoinColumn(name = "payment_status_id")
-    private PaymentStatus paymentStatus;
-    @ManyToOne
-    @JoinColumn(name = "order_status_id")
-    private OrderStatus orderStatus;
+
+    @Column(name = "total_price")
+    private Double totalPrice;
+
+    @Column(name = "payment_type")
+    @Enumerated(EnumType.STRING)
+    private PaymentTypeEnum paymentType;
+
+    @Column(name = "delivery_type")
+    @Enumerated(EnumType.STRING)
+    private DeliveryTypeEnum deliveryType;
+
+    @OneToMany(mappedBy = "product")
+    private Set<OrderProduct> orderProducts = new HashSet<>();
+
+    @Column(name = "payment_status")
+    @Enumerated(EnumType.STRING)
+    private PaymentStatusEnum paymentStatus;
+
+    @Column(name = "delivery_status")
+    @Enumerated(EnumType.STRING)
+    private OrderStatusEnum orderStatus;
 }
