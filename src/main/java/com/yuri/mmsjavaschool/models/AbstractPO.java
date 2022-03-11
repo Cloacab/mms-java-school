@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 @Getter
@@ -17,4 +18,8 @@ public class AbstractPO {
 
     @Column(name = "created_at")
     protected ZonedDateTime createdAt;
+
+    public AbstractPO() {
+        this.createdAt = ZonedDateTime.now(ZoneId.of("UTC"));
+    }
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 @Getter
@@ -20,4 +21,8 @@ public class DeletableAbstractPO {
 
     @Column(name = "is_deleted")
     protected Boolean isDeleted;
+
+    public DeletableAbstractPO() {
+        this.createdAt = ZonedDateTime.now(ZoneId.of("UTC"));
+    }
 }

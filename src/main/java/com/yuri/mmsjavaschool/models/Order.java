@@ -32,7 +32,7 @@ public class Order extends AbstractPO {
     @Enumerated(EnumType.STRING)
     private DeliveryTypeEnum deliveryType;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     private Set<OrderProduct> orderProducts = new HashSet<>();
 
     @Column(name = "payment_status")
